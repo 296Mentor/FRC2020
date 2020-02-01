@@ -11,7 +11,14 @@ public class Program {
 		DashboardWindow window = new DashboardWindow();
 		
 		while (true) {
-			;
+			window.repaint();
+			
+			try {
+				Thread.sleep(33);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		// exit with OK
