@@ -17,7 +17,9 @@ public class DashboardWindow extends JFrame {
 	
 	// some constants
 	private final int DRIVER_STATION_HEIGHT = 200;
-	private final Color DRIVER_STATION_BACKGROUND = new Color(42, 42, 42, 255);
+	public static final Color DRIVER_STATION_BACKGROUND = new Color(42, 42, 42, 255);
+	
+	public MatchTimer matchTimer;
 	
 	// private members
 	private final Rectangle bounds;
@@ -30,6 +32,9 @@ public class DashboardWindow extends JFrame {
 	public DashboardWindow() {
 		// initialize the JFrame superclass by calling its constructor
 		super("Northern Knights Dashboard");
+		
+		// initialize the various dashboard components
+		this.matchTimer = new MatchTimer();
 		
 		// get the start time (TODO: do this when the match starts)
 		matchStartTime = System.currentTimeMillis();
@@ -98,19 +103,8 @@ public class DashboardWindow extends JFrame {
 		Graphics g = this.backBuffer.getGraphics();
 		g.setColor(DRIVER_STATION_BACKGROUND);
 		g.fillRect(0, 0, this.bounds.width, this.bounds.height);
-
-		// paint here
-		g.setColor(Color.yellow);
-		g.fillRect((int)(0.75 * this.bounds.width), 0, 10, 820);
-		g.setColor(Color.green);
-		g.fillRect((int)(0.75 * this.bounds.width), (int)(0.08 * this.bounds.height), 10, 820);
-		g.setColor(Color.red);
-		g.fillRect((int)(0.75 * this.bounds.width), (int)(0.75 * this.bounds.height), 10, 820);
 		
-		// compute how tall this triangle should be
-		int height = (int)((System.currentTimeMillis() - this.matchStartTime) * 0.0045555);
-		g.setColor(DRIVER_STATION_BACKGROUND);
-		g.fillRect((int)(0.75 * this.bounds.width), 0, 10, height);
+		this.matchTimer.paint(g);
 
 		// draw the back buffer
 		_g.drawImage(this.backBuffer, 0, 0, null);

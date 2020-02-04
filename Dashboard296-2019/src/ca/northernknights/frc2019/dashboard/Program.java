@@ -9,6 +9,7 @@ public class Program {
 		
 		// construct a Dashboard window
 		DashboardWindow window = new DashboardWindow();
+		window.matchTimer.start();
 		
 		while (true) {
 			window.repaint();
