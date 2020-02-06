@@ -20,14 +20,11 @@ public class DashboardWindow extends JFrame {
 	public static final Color DRIVER_STATION_BACKGROUND = new Color(42, 42, 42, 255);
 	
 	public MatchTimer matchTimer;
-	
+	public BallGraph  ballGraph;
 	// private members
 	private final Rectangle bounds;
 //	private final JetsonCameraComponent camera;
 	private Image backBuffer = null;
-	
-	private int x = 0;
-	private long matchStartTime;
 	
 	public DashboardWindow() {
 		// initialize the JFrame superclass by calling its constructor
@@ -35,9 +32,7 @@ public class DashboardWindow extends JFrame {
 		
 		// initialize the various dashboard components
 		this.matchTimer = new MatchTimer();
-		
-		// get the start time (TODO: do this when the match starts)
-		matchStartTime = System.currentTimeMillis();
+		this.ballGraph = new BallGraph();
 		
 		/*
 		 * get some information
@@ -106,6 +101,8 @@ public class DashboardWindow extends JFrame {
 		
 		g.setClip(1440, 0, 10, 820);
 		this.matchTimer.paint(g);
+		g.setClip(this.bounds);
+		this.ballGraph.paint(g);
 
 		// draw the back buffer
 		_g.drawImage(this.backBuffer, 0, 0, null);
