@@ -2,6 +2,7 @@ package ca.northernknights.frc2019.dashboard;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 
 
@@ -24,37 +25,38 @@ public class BallGraph {
 	
 	
 	public void paint(Graphics g) {
+		Rectangle bounds = g.getClipBounds();
 		
 		g.setColor(Color.WHITE);
-		g.fillOval(100, 700, 100, 100);
-		g.fillOval(200, 700, 100, 100);
-		g.fillOval(300, 700, 100, 100);
-		g.fillOval(400, 700, 100, 100);
-		g.fillOval(500, 700, 100, 100);
+		g.fillOval(bounds.x, bounds.y, (int) (bounds.width/3.5), (int) (bounds.height/3.5));
+		g.fillOval(bounds.x + 62, bounds.y + 100, (int) (bounds.width/3.5), (int) (bounds.height/3.5));
+		g.fillOval(bounds.x + 125, bounds.y, (int) (bounds.width/3.5), (int) (bounds.height/3.5));
+		g.fillOval(bounds.x + 187, bounds.y + 100, (int) (bounds.width/3.5), (int) (bounds.height/3.5));
+		g.fillOval(bounds.x + 250, bounds.y, (int) (bounds.width/3.5), (int) (bounds.height/3.5));
     
 		if (ballCounter[0]) {
 		g.setColor(Color.YELLOW);
-	    g.fillOval(100, 700, 100, 100);
+	    g.fillOval(bounds.x, bounds.y, (int) (bounds.width/3.5), (int) (bounds.height/3.5));
 		}
 		
 		if (ballCounter[1]) {
 		g.setColor(Color.YELLOW);
-	    g.fillOval(200, 700, 100, 100);
+	    g.fillOval(bounds.x + 62, bounds.y + 100, (int) (bounds.width/3.5), (int) (bounds.height/3.5));
 		}
 		
 	    if (ballCounter[2]) {
 	    g.setColor(Color.YELLOW);
-	    g.fillOval(300, 700, 100, 100);
+	    g.fillOval(bounds.x + 125, bounds.y, (int) (bounds.width/3.5), (int) (bounds.height/3.5));
 	    }
 	    
 	    if (ballCounter[3]) {
 	    g.setColor(Color.YELLOW);
-	    g.fillOval(400, 700, 100, 100);
+	    g.fillOval(bounds.x + 187, bounds.y + 100, (int) (bounds.width/3.5), (int) (bounds.height/3.5));
 	    }
 	    
 	    if (ballCounter[4]) {
 	    g.setColor(Color.YELLOW);
-	    g.fillOval(500, 700, 100, 100);
+	    g.fillOval(bounds.x + 250, bounds.y, (int) (bounds.width/3.5), (int) (bounds.height/3.5));
 	    }
 }
 	

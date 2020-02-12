@@ -99,9 +99,9 @@ public class DashboardWindow extends JFrame {
 		g.setColor(DRIVER_STATION_BACKGROUND);
 		g.fillRect(0, 0, this.bounds.width, this.bounds.height);
 		
-		g.setClip(1440, 0, 10, 820);
+		g.setClip(1200, 0, 100, 820);
 		this.matchTimer.paint(g);
-		g.setClip(this.bounds);
+		g.setClip(700, 600, 350, 350);
 		this.ballGraph.paint(g);
 
 		// draw the back buffer
