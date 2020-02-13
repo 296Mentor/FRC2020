@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.GraphicsConfiguration;
 import java.awt.Image;
 import java.awt.Insets;
+import java.awt.Label;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 
@@ -21,6 +22,7 @@ public class DashboardWindow extends JFrame {
 	
 	public MatchTimer matchTimer;
 	public BallGraph  ballGraph;
+	public Clock clock;
 	// private members
 	private final Rectangle bounds;
 //	private final JetsonCameraComponent camera;
@@ -33,6 +35,7 @@ public class DashboardWindow extends JFrame {
 		// initialize the various dashboard components
 		this.matchTimer = new MatchTimer();
 		this.ballGraph = new BallGraph();
+		this.clock = new Clock();
 		
 		/*
 		 * get some information
@@ -84,6 +87,11 @@ public class DashboardWindow extends JFrame {
 //		// add the Jetson camera on the left
 //		this.add(this.camera);
 		
+		// add and position the clock
+		this.add(this.clock);
+		this.clock.setBounds(0, 0, 200, 200);
+		
+		
 		// make the window visible		
 		this.setVisible(true);
 	}
@@ -99,10 +107,11 @@ public class DashboardWindow extends JFrame {
 		g.setColor(DRIVER_STATION_BACKGROUND);
 		g.fillRect(0, 0, this.bounds.width, this.bounds.height);
 		
-		g.setClip(1200, 0, 100, 820);
+		g.setClip(1200, 0, 100, 820); 
 		this.matchTimer.paint(g);
 		g.setClip(700, 600, 350, 350);
 		this.ballGraph.paint(g);
+		this.clock.paint(g);
 
 		// draw the back buffer
 		_g.drawImage(this.backBuffer, 0, 0, null);
