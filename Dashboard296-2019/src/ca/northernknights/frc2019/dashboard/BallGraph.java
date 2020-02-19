@@ -41,22 +41,22 @@ public class BallGraph {
 		
 		if (ballCounter[1]) {
 		g.setColor(Color.YELLOW);
-	    g.fillOval(bounds.x + 62, bounds.y + 100, (int) (bounds.width/3.5), (int) (bounds.height/3.5));
+	    g.fillOval((int) (bounds.x + bounds.width/5.6), (int) (bounds.y + bounds.height/3.5), (int) (bounds.width/3.5), (int) (bounds.height/3.5));
 		}
 		
 	    if (ballCounter[2]) {
 	    g.setColor(Color.YELLOW);
-	    g.fillOval(bounds.x + 125, bounds.y, (int) (bounds.width/3.5), (int) (bounds.height/3.5));
+	    g.fillOval((int) (bounds.x + 2*(bounds.width/5.6)), bounds.y, (int) (bounds.width/3.5), (int) (bounds.height/3.5));
 	    }
 	    
 	    if (ballCounter[3]) {
 	    g.setColor(Color.YELLOW);
-	    g.fillOval(bounds.x + 187, bounds.y + 100, (int) (bounds.width/3.5), (int) (bounds.height/3.5));
+	    g.fillOval((int) (bounds.x + 3*(bounds.width/5.6)), (int) (bounds.y + bounds.height/3.5), (int) (bounds.width/3.5), (int) (bounds.height/3.5));
 	    }
 	    
 	    if (ballCounter[4]) {
 	    g.setColor(Color.YELLOW);
-	    g.fillOval(bounds.x + 250, bounds.y, (int) (bounds.width/3.5), (int) (bounds.height/3.5));
+	    g.fillOval((int) (bounds.x + 4*(bounds.width/5.6)), bounds.y, (int) (bounds.width/3.5), (int) (bounds.height/3.5));
 	    }
 }
 	
