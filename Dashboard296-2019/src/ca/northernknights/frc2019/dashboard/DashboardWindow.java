@@ -85,11 +85,15 @@ public class DashboardWindow extends JFrame {
 //		}
 //		
 //		// add the Jetson camera on the left
+		
 //		this.add(this.camera);
 		
 		// add and position the clock
 		this.add(this.clock);
 		this.clock.setBounds(0, 0, 200, 200);
+
+		// DEBUG: start the clock
+		this.clock.start();
 		
 		
 		// make the window visible		
@@ -118,3 +122,4 @@ public class DashboardWindow extends JFrame {
 	}
 	
 }
+
